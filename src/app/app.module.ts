@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { Sha1CComponent } from './sha1-c/sha1-c.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
+    Sha1CComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,11 @@
-<input [(ngModel)]="str" placeholder="name" />
-<h1>SHA1 : {{sha1gen()}}</h1>
-<h1>SHA2 : {{sha224gen()}}</h1>
-<
+<mat-card>
+    <mat-form-field floatPlaceholder="auto" style="padding: 1em;">
+        <input matInput [(ngModel)]="str" placeholder="STRING" onchange="sha1gen()" />
+    </mat-form-field>
+    <h1 matLine>{{listOfHashings[0]}} : {{sha1gen()}}</h1>
+    <h1 matLine>{{listOfHashings[1]}} : {{sha224gen()}}</h1>
+    <h1 matLine>{{listOfHashings[2]}} : {{sha256gen()}}</h1>
+    <h1 matLine>{{listOfHashings[3]}} : {{sha3gen()}}</h1>
+    <h1 matLine>{{listOfHashings[4]}} : {{sha384gen()}}</h1>
+    <h1 matLine>{{listOfHashings[5]}} : {{sha512gen()}}</h1>
+</mat-card>

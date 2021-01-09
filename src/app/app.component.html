@@ -1,6 +1,19 @@
-<mat-toolbar color="warn">
+<!-- <mat-toolbar color="warn">
     <mat-toolbar-row style="display: flex; justify-content: center;">
         <span>{{title | uppercase}}</span>
     </mat-toolbar-row>
-</mat-toolbar>
-<app-sha1-c></app-sha1-c>
+</mat-toolbar> -->
+<nav class="navbar navbar-expand-lg bg-dark">
+    <a class="navbar-brand" href="https://yo.sonuishaq67.wtf">si67wtf</a>
+    <ul class="nav navbar-nav mr-auto">
+        <div class="container">
+            <li class="nav-item active"><a class="nav-link text-white" routerLink="/home" routerLinkActive="active">Welcome</a>
+            </li>
+            <li class="nav-item active"><a class="nav-link text-white" routerLink="/sha" routerLinkActive="active">Sha
+          generator</a>
+                <li class="nav-item active"><a class="nav-link text-white" routerLink="/note" routerLinkActive="active">Note</a>
+                </li>
+        </div>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

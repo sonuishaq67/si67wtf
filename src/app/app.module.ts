@@ -9,11 +9,17 @@ import { Sha1CComponent } from './sha1-c/sha1-c.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { NoteAppComponent } from './note-app/note-app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Sha1CComponent,
+    WelcomePageComponent,
+    ErrorPageComponent,
+    NoteAppComponent,
   ],
   imports: [
     BrowserModule,

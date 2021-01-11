@@ -11,6 +11,8 @@
         <mat-card-actions>
             <button [disabled]="form.invalid" type="submit" color="primary" mat-raised-button>Submit</button>
             <button type="button" mat-button (click)="cancel()" color="warn" mat-raised-button>Cancel</button>
+            <button type="button" mat-button (click)="deleteLatest()" color="warn" mat-raised-button>Delete Latest</button>
+
         </mat-card-actions>
     </form>
 

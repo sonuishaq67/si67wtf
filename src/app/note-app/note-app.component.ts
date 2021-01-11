@@ -8,7 +8,6 @@ import { NoteApp } from './note-app';
 })
 export class NoteAppComponent implements OnInit {
   allNotes: NoteApp[] = []
-  i: number = 0
   currNotes: NoteApp = { title: '', description: '' }
   constructor() { }
   toParse: any
@@ -18,7 +17,7 @@ export class NoteAppComponent implements OnInit {
   }
 
   saveNotes() {
-    this.allNotes[this.i++] = this.currNotes;
+    this.allNotes.push(this.currNotes);
     this.clear()
     console.log(this.allNotes)
     localStorage.setItem("data", JSON.stringify(this.allNotes))
@@ -32,11 +31,13 @@ export class NoteAppComponent implements OnInit {
   async delete() {
     await localStorage.clear()
     this.allNotes = []
-    this.i = 0
+  }
+  deleteLatest() {
+    this.allNotes.pop();
+    localStorage.setItem("data", JSON.stringify(this.allNotes))
   }
   getNotes() {
     this.toParse = localStorage.getItem("data") ?? [];
     this.allNotes = JSON.parse(this.toParse);
-    this.i = this.allNotes.length
   }
 }

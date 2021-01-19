@@ -44,7 +44,6 @@ def runmain():
     return send_from_directory("dist/", "index.html")
   # else:
     # return '<a class="button" href="/login">Google Login</a>'
-
 # def get_google_provider_cfg():
 #     return requests.get(GOOGLE_DISCOVERY_URL).json()
 
@@ -52,6 +51,10 @@ def runmain():
 # def login():
 #   google_provider_cfg = get_google_provider_cfg()
 #   authorization_endpoint = google_provider_cfg["authorization_endpoint"]
+
+@app.errorhandler(404)
+def page_not_found(e):
+  return send_from_directory("dist/", "index.html")
 
 if __name__ == "__main__":
     app.run()

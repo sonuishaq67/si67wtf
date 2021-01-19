@@ -27,10 +27,10 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-try:
-    init_db_command()
-except sqlite3.OperationalError:
-    print("ASsuming database already created")
+# try:
+#     init_db_command()
+# except sqlite3.OperationalError:
+#     print("ASsuming database already created")
 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 

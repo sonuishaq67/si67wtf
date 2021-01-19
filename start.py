@@ -23,6 +23,7 @@ GOOGLE_DISCOVERY_URL = "https://accounts.google.com/.well-known/openid-configura
 
 
 app = Flask(__name__, static_url_path="", static_folder="dist/")
+app.secret_key = os.environ.get("SECRET_KEY") or os.urandom(24)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -99,13 +100,15 @@ def callback():
     login_user(user)
     return send_from_directory("dist/", "index.html")
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     print("not found error")
     if current_user.is_authenticated:
-      return send_from_directory("dist/", "index.html")
+        return send_from_directory("dist/", "index.html")
     else:
-      return redirect('/login')
+        return redirect("/login")
+
 
 if __name__ == "__main__":
     app.run()

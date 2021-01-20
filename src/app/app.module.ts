@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { NoteAppComponent } from './note-app/note-app.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { NoteAppComponent } from './note-app/note-app.component';
     WelcomePageComponent,
     ErrorPageComponent,
     NoteAppComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { NoteAppComponent } from './note-app/note-app.component';
     BrowserAnimationsModule,
     MaterialModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

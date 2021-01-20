@@ -1,4 +1,5 @@
-from flask import Flask, request, send_from_directory, redirect, url_for
+#!/usr/bin/env python
+from flask import Flask, request, send_from_directory, redirect, url_for,jsonify
 import json
 import os
 import sqlite3
@@ -43,11 +44,11 @@ def load_user(user_id):
 
 @app.route("/")
 def runmain():
-    if current_user.is_authenticated:
-        print("user is authenticated?")
+    # if current_user.is_authenticated:
+    #     print("user is authenticated?")
         return send_from_directory("dist/", "index.html")
-    else:
-        return '<a class="button" href="/login">Google Login</a>'
+    # else:
+    #     return '<a class="button" href="/login">Google Login</a>'
 
 
 def get_google_provider_cfg():
@@ -65,6 +66,11 @@ def login():
     )
     return redirect(request_uri)
 
+
+@app.route("/isLoggedIn")
+def returnLog():
+    dictIn = {"value": current_user.is_authenticated}
+    return dictIn
 
 @app.route("/login/callback")
 def callback():

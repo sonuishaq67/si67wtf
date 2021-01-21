@@ -1,1 +1,1 @@
-web: gunicorn wsgi:app
+web: rm -rfv node_modules && gunicorn wsgi:app

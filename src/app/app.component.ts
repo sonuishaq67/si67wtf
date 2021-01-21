@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
@@ -13,16 +14,16 @@ export class AppComponent {
   title = 'Hashing generator';
   url='/isLoggedIn'
   isLoggedInDataType:boolean=false
-  constructor(private http: HttpClient){
-    this.isLoggedInDataType=this.isLoggedIn()
+  constructor(private http: HttpClient, private route: Router){
+    this.isLoggedIn()
   }
 
-  isLoggedIn(){
-     this.http.get(this.url).pipe(catchError(this.handleError)).subscribe((data)=>{
-       console.log(Object.values(data)[0] + "from app component")
-      return Object.values(data)[0];
+  isLoggedIn() {
+    this.http.get(this.url).pipe(catchError(this.handleError)).subscribe((data) => {
+      console.log(Object.values(data)[0] + "from login component")
+      this.isLoggedInDataType = Object.values(data)[0];
+      this.redirectIfLoggedIn()
     })
-     return false;
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -34,5 +35,10 @@ export class AppComponent {
     }
     return throwError(
       'Something bad happened; please try again later.');
+  }
+  redirectIfLoggedIn() {
+    if (this.isLoggedInDataType) {
+      this.route.navigate(['/home'])
+    }
   }
 }

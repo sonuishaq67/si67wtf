@@ -104,7 +104,7 @@ def callback():
     if not User.get(unique_id):
         User.create(unique_id, users_name, users_email, picture)
     login_user(user)
-    return send_from_directory("dist/", "index.html")
+    return redirect('/')
 
 
 @app.errorhandler(404)
@@ -113,7 +113,7 @@ def page_not_found(e):
     if current_user.is_authenticated:
         return send_from_directory("dist/", "index.html")
     else:
-        return redirect("/login")
+        return redirect("/")
 
 
 if __name__ == "__main__":

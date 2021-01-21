@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-dark" *ngIf="isLoggedInDataType">
+<nav class="navbar navbar-expand-lg bg-dark" *ngIf="isLoggedInDataType;else notLogged">
     <a class="navbar-brand" href="/">si67wtf</a>
     <ul class="nav navbar-nav mr-auto">
         <div class="container">
@@ -11,4 +11,9 @@
         </div>
     </ul>
 </nav>
+<ng-template #notLogged>
+    <mat-toolbar color="warn">
+        Sign In
+    </mat-toolbar>
+</ng-template>
 <router-outlet></router-outlet>

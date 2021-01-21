@@ -19,7 +19,8 @@ export class AppComponent {
 
   isLoggedIn(){
      this.http.get(this.url).pipe(catchError(this.handleError)).subscribe((data)=>{
-      return console.log(Object.values(data)[0]);
+       console.log(Object.values(data)[0] + "from app component")
+      return Object.values(data)[0];
     })
      return false;
   }

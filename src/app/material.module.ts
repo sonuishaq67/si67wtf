@@ -20,20 +20,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   exports: [
     MatButtonModule,
     MatCardModule,
-    MatCheckboxModule,
+    // MatCheckboxModule,
     MatFormFieldModule,
-    MatGridListModule,
+    // MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
     MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSnackBarModule,
-    MatTableModule,
+    // MatSidenavModule,
+    // MatSliderModule,
+    // MatSnackBarModule,
+    // MatTableModule,
     MatToolbarModule,
-    MatButtonToggleModule
+    // MatButtonToggleModule
   ]
 })
 export class MaterialModule { }

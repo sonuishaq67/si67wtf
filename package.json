@@ -1,6 +1,10 @@
 {
     "name": "ffmpeg-web",
     "version": "0.0.0",
+    "engines": {
+        "node": "15.6.0",
+        "npm": "6.14.11"
+    },
     "scripts": {
         "ng": "ng",
         "start": "ng serve -o",

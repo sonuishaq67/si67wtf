@@ -1,18 +1,17 @@
-<nav class="navbar navbar-expand-lg bg-dark" *ngIf="isLoggedInDataType;else notLogged">
-    <a class="navbar-brand" href="/">si67wtf</a>
-    <ul class="nav navbar-nav mr-auto">
-        <div class="container">
-            <li class="nav-item active"><a class="nav-link text-white" routerLink="/home" routerLinkActive="active">Welcome</a>
-            </li>
-            <li class="nav-item active"><a class="nav-link text-white" routerLink="/sha" routerLinkActive="active">Sha
-          generator</a>
-                <li class="nav-item active"><a class="nav-link text-white" routerLink="/note" routerLinkActive="active">Note</a>
-                </li>
-        </div>
-    </ul>
-</nav>
+<mat-toolbar color="primary" *ngIf="isLoggedInDataType;else notLogged">
+    <mat-toolbar-row>
+        <a class="navbar-brand" href="/">si67wtf</a>
+        <a class="nav-link text-dark" routerLink="/home" routerLinkActive="active">Welcome</a>
+        <a class="nav-link text-dark" routerLink="/sha" routerLinkActive="active">Sha generator</a>
+        <a class="nav-link text-dark" routerLink="/note" routerLinkActive="active">Note</a>
+        <span class="example-spacer"></span>
+        <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">android</mat-icon>
+        <a class="nav-link text-dark" routerLink="/note" routerLinkActive="active" (click)="logoutUser()">Log out</a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
 <ng-template #notLogged>
-    <mat-toolbar color="warn">
+    <mat-toolbar color="primary">
         Sign In
     </mat-toolbar>
 </ng-template>

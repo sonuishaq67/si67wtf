@@ -66,9 +66,17 @@ def login():
     )
     return redirect(request_uri)
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
+
 
 @app.route("/isLoggedIn")
 def returnLog():
+    google_provider_cfg = get_google_provider_cfg()
+    authorization_endpoint = google_provider_cfg["authorization_endpoint"]
     dictIn = {"value": current_user.is_authenticated}
     return dictIn
 
@@ -117,4 +125,4 @@ def page_not_found(e):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(ssl_context="adhoc")
